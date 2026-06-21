@@ -1,0 +1,16 @@
+# Amex Fraud & Risk Anomaly Detection
+
+## Business Problem
+Card issuers need to identify suspicious transaction patterns quickly to limit financial losses and protect customers, while avoiding overly aggressive flagging that disrupts legitimate spend. This project analyzes transaction-level data to detect anomalous patterns and flag potential risk, balancing detection sensitivity with false-positive impact on genuine customers.
+
+## Dataset
+**Source 1:** [Credit Card Fraud Detection](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud) (Kaggle, by mlg-ulb)
+284,807 anonymized European transactions over 2 days, with 492 confirmed fraud cases (highly imbalanced — 0.172% fraud rate).
+
+**Source 2:** [Credit Card Transactions Dataset](https://www.kaggle.com/datasets/priyamchoksi/credit-card-transactions-dataset) (Kaggle, by priyamchoksi)
+Transaction-level data with merchant, category, location, and cardholder details — used for SQL-based rule logic since fields are human-readable (unlike the PCA-anonymized fraud dataset).
+
+See `data/README.md` for download instructions.
+
+## Objective
+Use SQL to flag rule-based anomalies (spend spikes, unusual merchant categories, geography mismatches) and use Python to apply statistical anomaly detection (z-score thresholds, rolling averages) on labeled fraud data — without building a full ML classification
